@@ -2,9 +2,12 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 .vs/
-/bin/
-/obj/
+/Library Management System/bin
+/Library Management System/obj
+/Library Management System/.vs/
 /Library Management System/.vs/Library Management System/FileContentIndex/17be9c58-410e-44d9-9a51-f8cabffe2daf.vsidx
 *.vsidx
 /Library Management System/.vs/Library Management System/FileContentIndex/a58fe1a7-ae7c-4205-97e0-af9ac5299589.vsidx
 /Library Management System/bin/Debug/Library Management System.exe
+
+
