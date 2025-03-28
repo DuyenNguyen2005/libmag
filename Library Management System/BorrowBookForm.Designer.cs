@@ -40,6 +40,7 @@
             this.dataGridViewBorrow = new System.Windows.Forms.DataGridView();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
+            this.ckbTeacher = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBorrow)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +48,7 @@
             // 
             this.lbBorrowBook.AutoSize = true;
             this.lbBorrowBook.Font = new System.Drawing.Font("Impact", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbBorrowBook.Location = new System.Drawing.Point(38, 46);
+            this.lbBorrowBook.Location = new System.Drawing.Point(35, 46);
             this.lbBorrowBook.Name = "lbBorrowBook";
             this.lbBorrowBook.Size = new System.Drawing.Size(203, 44);
             this.lbBorrowBook.TabIndex = 0;
@@ -56,7 +57,7 @@
             // lbUserId
             // 
             this.lbUserId.AutoSize = true;
-            this.lbUserId.Location = new System.Drawing.Point(41, 132);
+            this.lbUserId.Location = new System.Drawing.Point(38, 132);
             this.lbUserId.Name = "lbUserId";
             this.lbUserId.Size = new System.Drawing.Size(77, 25);
             this.lbUserId.TabIndex = 1;
@@ -65,7 +66,7 @@
             // lbUserName
             // 
             this.lbUserName.AutoSize = true;
-            this.lbUserName.Location = new System.Drawing.Point(41, 206);
+            this.lbUserName.Location = new System.Drawing.Point(38, 206);
             this.lbUserName.Name = "lbUserName";
             this.lbUserName.Size = new System.Drawing.Size(100, 25);
             this.lbUserName.TabIndex = 2;
@@ -74,7 +75,7 @@
             // lbUserPhone
             // 
             this.lbUserPhone.AutoSize = true;
-            this.lbUserPhone.Location = new System.Drawing.Point(41, 281);
+            this.lbUserPhone.Location = new System.Drawing.Point(38, 281);
             this.lbUserPhone.Name = "lbUserPhone";
             this.lbUserPhone.Size = new System.Drawing.Size(143, 25);
             this.lbUserPhone.TabIndex = 3;
@@ -83,7 +84,7 @@
             // lbBookName
             // 
             this.lbBookName.AutoSize = true;
-            this.lbBookName.Location = new System.Drawing.Point(41, 356);
+            this.lbBookName.Location = new System.Drawing.Point(38, 356);
             this.lbBookName.Name = "lbBookName";
             this.lbBookName.Size = new System.Drawing.Size(114, 25);
             this.lbBookName.TabIndex = 4;
@@ -91,28 +92,28 @@
             // 
             // txtUserId
             // 
-            this.txtUserId.Location = new System.Drawing.Point(201, 127);
+            this.txtUserId.Location = new System.Drawing.Point(198, 127);
             this.txtUserId.Name = "txtUserId";
             this.txtUserId.Size = new System.Drawing.Size(281, 30);
             this.txtUserId.TabIndex = 5;
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(201, 201);
+            this.txtUserName.Location = new System.Drawing.Point(198, 201);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(281, 30);
             this.txtUserName.TabIndex = 6;
             // 
             // txtUserPhone
             // 
-            this.txtUserPhone.Location = new System.Drawing.Point(201, 276);
+            this.txtUserPhone.Location = new System.Drawing.Point(198, 276);
             this.txtUserPhone.Name = "txtUserPhone";
             this.txtUserPhone.Size = new System.Drawing.Size(281, 30);
             this.txtUserPhone.TabIndex = 7;
             // 
             // txtBookName
             // 
-            this.txtBookName.Location = new System.Drawing.Point(201, 351);
+            this.txtBookName.Location = new System.Drawing.Point(198, 351);
             this.txtBookName.Name = "txtBookName";
             this.txtBookName.Size = new System.Drawing.Size(281, 30);
             this.txtBookName.TabIndex = 8;
@@ -129,7 +130,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(85, 425);
+            this.btnCancel.Location = new System.Drawing.Point(43, 425);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(116, 48);
             this.btnCancel.TabIndex = 10;
@@ -138,18 +139,29 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(296, 425);
+            this.btnOk.Location = new System.Drawing.Point(198, 425);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(116, 48);
             this.btnOk.TabIndex = 11;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             // 
+            // ckbTeacher
+            // 
+            this.ckbTeacher.AutoSize = true;
+            this.ckbTeacher.Location = new System.Drawing.Point(368, 436);
+            this.ckbTeacher.Name = "ckbTeacher";
+            this.ckbTeacher.Size = new System.Drawing.Size(111, 29);
+            this.ckbTeacher.TabIndex = 12;
+            this.ckbTeacher.Text = "Teacher";
+            this.ckbTeacher.UseVisualStyleBackColor = true;
+            // 
             // BorrowBookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(964, 529);
+            this.ClientSize = new System.Drawing.Size(964, 608);
+            this.Controls.Add(this.ckbTeacher);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.dataGridViewBorrow);
@@ -187,5 +199,6 @@
         private System.Windows.Forms.DataGridView dataGridViewBorrow;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.CheckBox ckbTeacher;
     }
 }
