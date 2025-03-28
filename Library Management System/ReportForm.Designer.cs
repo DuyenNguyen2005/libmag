@@ -28,40 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lbReport = new System.Windows.Forms.Label();
             this.lbFromDate = new System.Windows.Forms.Label();
             this.lbToDate = new System.Windows.Forms.Label();
             this.lbBookCategory = new System.Windows.Forms.Label();
             this.lbBookQuantity = new System.Windows.Forms.Label();
             this.lbBorrowingFrequency = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lbActiveUsers = new System.Windows.Forms.Label();
+            this.lbBookCondition = new System.Windows.Forms.Label();
             this.grpFilter = new System.Windows.Forms.GroupBox();
             this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
             this.dtpToDate = new System.Windows.Forms.DateTimePicker();
             this.cbBookCategory = new System.Windows.Forms.ComboBox();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartBookQuantity = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartBorrowingFrequency = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartActiveUsers = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartBookCondition = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
             this.grpFilter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartBookQuantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartBorrowingFrequency)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartActiveUsers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartBookCondition)).BeginInit();
             this.SuspendLayout();
             // 
             // lbReport
@@ -119,26 +121,28 @@
             this.lbBorrowingFrequency.TabIndex = 5;
             this.lbBorrowingFrequency.Text = "Borrowing frequency over time";
             // 
-            // label7
+            // lbActiveUsers
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 636);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 25);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "label7";
+            this.lbActiveUsers.AutoSize = true;
+            this.lbActiveUsers.Location = new System.Drawing.Point(9, 636);
+            this.lbActiveUsers.Name = "lbActiveUsers";
+            this.lbActiveUsers.Size = new System.Drawing.Size(446, 25);
+            this.lbActiveUsers.TabIndex = 6;
+            this.lbActiveUsers.Text = "List of active users (highest number of borrowings)";
             // 
-            // label8
+            // lbBookCondition
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(510, 636);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 25);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "label8";
+            this.lbBookCondition.AutoSize = true;
+            this.lbBookCondition.Location = new System.Drawing.Point(510, 636);
+            this.lbBookCondition.Name = "lbBookCondition";
+            this.lbBookCondition.Size = new System.Drawing.Size(145, 25);
+            this.lbBookCondition.TabIndex = 7;
+            this.lbBookCondition.Text = "Book Condition";
             // 
             // grpFilter
             // 
+            this.grpFilter.Controls.Add(this.btnExport);
+            this.grpFilter.Controls.Add(this.btnCancel);
             this.grpFilter.Controls.Add(this.btnRefresh);
             this.grpFilter.Controls.Add(this.cbBookCategory);
             this.grpFilter.Controls.Add(this.dtpToDate);
@@ -186,82 +190,101 @@
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             // 
-            // chart1
+            // chartBookQuantity
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart1.Legends.Add(legend5);
-            this.chart1.Location = new System.Drawing.Point(14, 282);
-            this.chart1.Name = "chart1";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.chart1.Series.Add(series5);
-            this.chart1.Size = new System.Drawing.Size(429, 319);
-            this.chart1.TabIndex = 9;
-            this.chart1.Text = "chart1";
+            chartArea1.Name = "ChartArea1";
+            this.chartBookQuantity.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartBookQuantity.Legends.Add(legend1);
+            this.chartBookQuantity.Location = new System.Drawing.Point(14, 282);
+            this.chartBookQuantity.Name = "chartBookQuantity";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartBookQuantity.Series.Add(series1);
+            this.chartBookQuantity.Size = new System.Drawing.Size(429, 319);
+            this.chartBookQuantity.TabIndex = 9;
+            this.chartBookQuantity.Text = "chart1";
             // 
-            // chart2
+            // chartBorrowingFrequency
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart2.Legends.Add(legend6);
-            this.chart2.Location = new System.Drawing.Point(515, 282);
-            this.chart2.Name = "chart2";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chart2.Series.Add(series6);
-            this.chart2.Size = new System.Drawing.Size(429, 319);
-            this.chart2.TabIndex = 10;
-            this.chart2.Text = "chart2";
+            chartArea2.Name = "ChartArea1";
+            this.chartBorrowingFrequency.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartBorrowingFrequency.Legends.Add(legend2);
+            this.chartBorrowingFrequency.Location = new System.Drawing.Point(515, 282);
+            this.chartBorrowingFrequency.Name = "chartBorrowingFrequency";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartBorrowingFrequency.Series.Add(series2);
+            this.chartBorrowingFrequency.Size = new System.Drawing.Size(429, 319);
+            this.chartBorrowingFrequency.TabIndex = 10;
+            this.chartBorrowingFrequency.Text = "chart2";
             // 
-            // chart3
+            // chartActiveUsers
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.chart3.Legends.Add(legend7);
-            this.chart3.Location = new System.Drawing.Point(14, 681);
-            this.chart3.Name = "chart3";
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            this.chart3.Series.Add(series7);
-            this.chart3.Size = new System.Drawing.Size(429, 319);
-            this.chart3.TabIndex = 11;
-            this.chart3.Text = "chart3";
+            chartArea3.Name = "ChartArea1";
+            this.chartActiveUsers.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartActiveUsers.Legends.Add(legend3);
+            this.chartActiveUsers.Location = new System.Drawing.Point(14, 681);
+            this.chartActiveUsers.Name = "chartActiveUsers";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartActiveUsers.Series.Add(series3);
+            this.chartActiveUsers.Size = new System.Drawing.Size(429, 319);
+            this.chartActiveUsers.TabIndex = 11;
+            this.chartActiveUsers.Text = "chart3";
             // 
-            // chart4
+            // chartBookCondition
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chart4.ChartAreas.Add(chartArea8);
-            legend8.Name = "Legend1";
-            this.chart4.Legends.Add(legend8);
-            this.chart4.Location = new System.Drawing.Point(515, 681);
-            this.chart4.Name = "chart4";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Series1";
-            this.chart4.Series.Add(series8);
-            this.chart4.Size = new System.Drawing.Size(429, 319);
-            this.chart4.TabIndex = 12;
-            this.chart4.Text = "chart4";
+            chartArea4.Name = "ChartArea1";
+            this.chartBookCondition.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chartBookCondition.Legends.Add(legend4);
+            this.chartBookCondition.Location = new System.Drawing.Point(515, 681);
+            this.chartBookCondition.Name = "chartBookCondition";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chartBookCondition.Series.Add(series4);
+            this.chartBookCondition.Size = new System.Drawing.Size(429, 319);
+            this.chartBookCondition.TabIndex = 12;
+            this.chartBookCondition.Text = "chart4";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(481, 68);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(139, 37);
+            this.btnCancel.TabIndex = 8;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(630, 68);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(139, 37);
+            this.btnExport.TabIndex = 9;
+            this.btnExport.Text = "Export File";
+            this.btnExport.UseVisualStyleBackColor = true;
             // 
             // ReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(961, 1046);
-            this.Controls.Add(this.chart4);
-            this.Controls.Add(this.chart3);
-            this.Controls.Add(this.chart2);
-            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.chartBookCondition);
+            this.Controls.Add(this.chartActiveUsers);
+            this.Controls.Add(this.chartBorrowingFrequency);
+            this.Controls.Add(this.chartBookQuantity);
             this.Controls.Add(this.grpFilter);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lbBookCondition);
+            this.Controls.Add(this.lbActiveUsers);
             this.Controls.Add(this.lbBorrowingFrequency);
             this.Controls.Add(this.lbBookQuantity);
             this.Controls.Add(this.lbReport);
@@ -271,10 +294,10 @@
             this.Text = "Report Form";
             this.grpFilter.ResumeLayout(false);
             this.grpFilter.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartBookQuantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartBorrowingFrequency)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartActiveUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartBookCondition)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,16 +311,18 @@
         private System.Windows.Forms.Label lbBookCategory;
         private System.Windows.Forms.Label lbBookQuantity;
         private System.Windows.Forms.Label lbBorrowingFrequency;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbActiveUsers;
+        private System.Windows.Forms.Label lbBookCondition;
         private System.Windows.Forms.GroupBox grpFilter;
         private System.Windows.Forms.DateTimePicker dtpToDate;
         private System.Windows.Forms.DateTimePicker dtpFromDate;
         private System.Windows.Forms.ComboBox cbBookCategory;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartBookQuantity;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartBorrowingFrequency;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartActiveUsers;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartBookCondition;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnExport;
     }
 }
