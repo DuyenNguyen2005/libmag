@@ -33,6 +33,7 @@
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.returnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.menuStripUser.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +46,7 @@
             this.serviceToolStripMenuItem});
             this.menuStripUser.Location = new System.Drawing.Point(0, 0);
             this.menuStripUser.Name = "menuStripUser";
-            this.menuStripUser.Size = new System.Drawing.Size(556, 38);
+            this.menuStripUser.Size = new System.Drawing.Size(548, 36);
             this.menuStripUser.TabIndex = 0;
             this.menuStripUser.Text = "User Menu";
             // 
@@ -56,7 +57,7 @@
             this.borrowToolStripMenuItem,
             this.returnToolStripMenuItem});
             this.serviceToolStripMenuItem.Name = "serviceToolStripMenuItem";
-            this.serviceToolStripMenuItem.Size = new System.Drawing.Size(90, 34);
+            this.serviceToolStripMenuItem.Size = new System.Drawing.Size(90, 32);
             this.serviceToolStripMenuItem.Text = "Service";
             // 
             // searchToolStripMenuItem
@@ -80,17 +81,29 @@
             this.returnToolStripMenuItem.Text = "Return";
             this.returnToolStripMenuItem.Click += new System.EventHandler(this.returnToolStripMenuItem_Click);
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(412, 65);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(115, 41);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(556, 364);
+            this.ClientSize = new System.Drawing.Size(548, 339);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.menuStripUser);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.menuStripUser;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UserForm";
             this.Text = "User Form";
+            this.Load += new System.EventHandler(this.UserForm_Load);
             this.menuStripUser.ResumeLayout(false);
             this.menuStripUser.PerformLayout();
             this.ResumeLayout(false);
@@ -105,5 +118,6 @@
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem borrowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem returnToolStripMenuItem;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

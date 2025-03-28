@@ -34,5 +34,15 @@ namespace Library_Management_System
             ReturnBookForm returnBookForm = new ReturnBookForm();
             returnBookForm.Show();
         }
+
+        private void UserForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

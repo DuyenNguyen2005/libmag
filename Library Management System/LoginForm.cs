@@ -58,5 +58,10 @@ namespace Library_Management_System
                 }
             }
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

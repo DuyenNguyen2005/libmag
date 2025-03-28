@@ -160,9 +160,8 @@
             this.lbFine.AutoSize = true;
             this.lbFine.Location = new System.Drawing.Point(272, 422);
             this.lbFine.Name = "lbFine";
-            this.lbFine.Size = new System.Drawing.Size(64, 25);
+            this.lbFine.Size = new System.Drawing.Size(0, 25);
             this.lbFine.TabIndex = 14;
-            this.lbFine.Text = "label1";
             // 
             // btnFind
             // 

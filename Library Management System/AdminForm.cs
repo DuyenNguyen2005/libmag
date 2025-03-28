@@ -51,5 +51,22 @@ namespace Library_Management_System
             UserManageForm userManageForm = new UserManageForm();
             userManageForm.Show();
         }
+
+        private void borrowReturnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BorrowReturnManageForm borrowReturnManageForm = new BorrowReturnManageForm();
+            borrowReturnManageForm.Show();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();   
+        }
+
+        private void reportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReportForm reportForm = new ReportForm();
+            reportForm.Show();
+        }
     }
 }
