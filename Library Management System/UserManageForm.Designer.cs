@@ -33,18 +33,17 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDeleteInfor = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDeleteText = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
-            this.txtCategory = new System.Windows.Forms.TextBox();
-            this.txtBookName = new System.Windows.Forms.TextBox();
-            this.txtBookId = new System.Windows.Forms.TextBox();
+            this.txtNumber = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtUserId = new System.Windows.Forms.TextBox();
             this.lbPhone = new System.Windows.Forms.Label();
             this.lbUserName = new System.Windows.Forms.Label();
             this.lbUserId = new System.Windows.Forms.Label();
             this.lbManageUsers = new System.Windows.Forms.Label();
             this.groupGender = new System.Windows.Forms.GroupBox();
-            this.rdbtnFemale = new System.Windows.Forms.RadioButton();
-            this.rdbtnMale = new System.Windows.Forms.RadioButton();
+            this.rdoFemale = new System.Windows.Forms.RadioButton();
+            this.rdoMale = new System.Windows.Forms.RadioButton();
             this.lbGender = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewManageUser)).BeginInit();
             this.groupGender.SuspendLayout();
@@ -62,78 +61,74 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(931, 54);
+            this.btnReset.Location = new System.Drawing.Point(47, 464);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(100, 44);
             this.btnReset.TabIndex = 35;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(816, 54);
+            this.btnUpdate.Location = new System.Drawing.Point(816, 60);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(100, 44);
             this.btnUpdate.TabIndex = 34;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDeleteInfor
             // 
-            this.btnDeleteInfor.Location = new System.Drawing.Point(695, 54);
+            this.btnDeleteInfor.Location = new System.Drawing.Point(695, 60);
             this.btnDeleteInfor.Name = "btnDeleteInfor";
             this.btnDeleteInfor.Size = new System.Drawing.Size(100, 44);
             this.btnDeleteInfor.TabIndex = 33;
             this.btnDeleteInfor.Text = "Delete";
             this.btnDeleteInfor.UseVisualStyleBackColor = true;
+            this.btnDeleteInfor.Click += new System.EventHandler(this.btnDeleteInfor_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(584, 54);
+            this.btnAdd.Location = new System.Drawing.Point(584, 60);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 44);
             this.btnAdd.TabIndex = 32;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteText
-            // 
-            this.btnDeleteText.Location = new System.Drawing.Point(201, 455);
-            this.btnDeleteText.Name = "btnDeleteText";
-            this.btnDeleteText.Size = new System.Drawing.Size(100, 44);
-            this.btnDeleteText.TabIndex = 31;
-            this.btnDeleteText.Text = "Delete";
-            this.btnDeleteText.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(47, 455);
+            this.btnFind.Location = new System.Drawing.Point(931, 60);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(100, 44);
             this.btnFind.TabIndex = 30;
             this.btnFind.Text = "Find";
             this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
-            // txtCategory
+            // txtNumber
             // 
-            this.txtCategory.Location = new System.Drawing.Point(201, 253);
-            this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Size = new System.Drawing.Size(340, 30);
-            this.txtCategory.TabIndex = 27;
+            this.txtNumber.Location = new System.Drawing.Point(201, 253);
+            this.txtNumber.Name = "txtNumber";
+            this.txtNumber.Size = new System.Drawing.Size(340, 30);
+            this.txtNumber.TabIndex = 27;
             // 
-            // txtBookName
+            // txtName
             // 
-            this.txtBookName.Location = new System.Drawing.Point(201, 192);
-            this.txtBookName.Name = "txtBookName";
-            this.txtBookName.Size = new System.Drawing.Size(340, 30);
-            this.txtBookName.TabIndex = 26;
+            this.txtName.Location = new System.Drawing.Point(201, 192);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(340, 30);
+            this.txtName.TabIndex = 26;
             // 
-            // txtBookId
+            // txtUserId
             // 
-            this.txtBookId.Location = new System.Drawing.Point(201, 130);
-            this.txtBookId.Name = "txtBookId";
-            this.txtBookId.Size = new System.Drawing.Size(340, 30);
-            this.txtBookId.TabIndex = 25;
+            this.txtUserId.Location = new System.Drawing.Point(201, 130);
+            this.txtUserId.Name = "txtUserId";
+            this.txtUserId.Size = new System.Drawing.Size(340, 30);
+            this.txtUserId.TabIndex = 25;
             // 
             // lbPhone
             // 
@@ -174,35 +169,35 @@
             // 
             // groupGender
             // 
-            this.groupGender.Controls.Add(this.rdbtnFemale);
-            this.groupGender.Controls.Add(this.rdbtnMale);
+            this.groupGender.Controls.Add(this.rdoFemale);
+            this.groupGender.Controls.Add(this.rdoMale);
             this.groupGender.Location = new System.Drawing.Point(201, 314);
             this.groupGender.Name = "groupGender";
             this.groupGender.Size = new System.Drawing.Size(340, 110);
             this.groupGender.TabIndex = 38;
             this.groupGender.TabStop = false;
             // 
-            // rdbtnFemale
+            // rdoFemale
             // 
-            this.rdbtnFemale.AutoSize = true;
-            this.rdbtnFemale.Location = new System.Drawing.Point(178, 46);
-            this.rdbtnFemale.Name = "rdbtnFemale";
-            this.rdbtnFemale.Size = new System.Drawing.Size(102, 29);
-            this.rdbtnFemale.TabIndex = 1;
-            this.rdbtnFemale.TabStop = true;
-            this.rdbtnFemale.Text = "Female";
-            this.rdbtnFemale.UseVisualStyleBackColor = true;
+            this.rdoFemale.AutoSize = true;
+            this.rdoFemale.Location = new System.Drawing.Point(178, 46);
+            this.rdoFemale.Name = "rdoFemale";
+            this.rdoFemale.Size = new System.Drawing.Size(102, 29);
+            this.rdoFemale.TabIndex = 1;
+            this.rdoFemale.TabStop = true;
+            this.rdoFemale.Text = "Female";
+            this.rdoFemale.UseVisualStyleBackColor = true;
             // 
-            // rdbtnMale
+            // rdoMale
             // 
-            this.rdbtnMale.AutoSize = true;
-            this.rdbtnMale.Location = new System.Drawing.Point(39, 46);
-            this.rdbtnMale.Name = "rdbtnMale";
-            this.rdbtnMale.Size = new System.Drawing.Size(80, 29);
-            this.rdbtnMale.TabIndex = 0;
-            this.rdbtnMale.TabStop = true;
-            this.rdbtnMale.Text = "Male";
-            this.rdbtnMale.UseVisualStyleBackColor = true;
+            this.rdoMale.AutoSize = true;
+            this.rdoMale.Location = new System.Drawing.Point(39, 46);
+            this.rdoMale.Name = "rdoMale";
+            this.rdoMale.Size = new System.Drawing.Size(80, 29);
+            this.rdoMale.TabIndex = 0;
+            this.rdoMale.TabStop = true;
+            this.rdoMale.Text = "Male";
+            this.rdoMale.UseVisualStyleBackColor = true;
             // 
             // lbGender
             // 
@@ -215,8 +210,8 @@
             // 
             // UserManageForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1067, 562);
             this.Controls.Add(this.lbGender);
             this.Controls.Add(this.groupGender);
@@ -225,11 +220,10 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDeleteInfor);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.btnDeleteText);
             this.Controls.Add(this.btnFind);
-            this.Controls.Add(this.txtCategory);
-            this.Controls.Add(this.txtBookName);
-            this.Controls.Add(this.txtBookId);
+            this.Controls.Add(this.txtNumber);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtUserId);
             this.Controls.Add(this.lbPhone);
             this.Controls.Add(this.lbUserName);
             this.Controls.Add(this.lbUserId);
@@ -238,6 +232,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UserManageForm";
             this.Text = "User Manage Form";
+            this.Load += new System.EventHandler(this.UserManageForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewManageUser)).EndInit();
             this.groupGender.ResumeLayout(false);
             this.groupGender.PerformLayout();
@@ -253,18 +248,17 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDeleteInfor;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnDeleteText;
         private System.Windows.Forms.Button btnFind;
-        private System.Windows.Forms.TextBox txtCategory;
-        private System.Windows.Forms.TextBox txtBookName;
-        private System.Windows.Forms.TextBox txtBookId;
+        private System.Windows.Forms.TextBox txtNumber;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtUserId;
         private System.Windows.Forms.Label lbPhone;
         private System.Windows.Forms.Label lbUserName;
         private System.Windows.Forms.Label lbUserId;
         private System.Windows.Forms.Label lbManageUsers;
         private System.Windows.Forms.GroupBox groupGender;
         private System.Windows.Forms.Label lbGender;
-        private System.Windows.Forms.RadioButton rdbtnFemale;
-        private System.Windows.Forms.RadioButton rdbtnMale;
+        private System.Windows.Forms.RadioButton rdoFemale;
+        private System.Windows.Forms.RadioButton rdoMale;
     }
 }

@@ -40,13 +40,12 @@
             this.txtAuthor = new System.Windows.Forms.TextBox();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.btnFind = new System.Windows.Forms.Button();
-            this.btnDeleteText = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDeleteInfor = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
             this.chkBorrowed = new System.Windows.Forms.CheckBox();
             this.dataGridViewManageBook = new System.Windows.Forms.DataGridView();
+            this.btnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewManageBook)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,95 +108,81 @@
             // 
             this.txtBookId.Location = new System.Drawing.Point(190, 117);
             this.txtBookId.Name = "txtBookId";
-            this.txtBookId.Size = new System.Drawing.Size(340, 30);
+            this.txtBookId.Size = new System.Drawing.Size(337, 30);
             this.txtBookId.TabIndex = 6;
             // 
             // txtBookName
             // 
             this.txtBookName.Location = new System.Drawing.Point(190, 179);
             this.txtBookName.Name = "txtBookName";
-            this.txtBookName.Size = new System.Drawing.Size(340, 30);
+            this.txtBookName.Size = new System.Drawing.Size(337, 30);
             this.txtBookName.TabIndex = 7;
             // 
             // txtCategory
             // 
             this.txtCategory.Location = new System.Drawing.Point(190, 240);
             this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Size = new System.Drawing.Size(340, 30);
+            this.txtCategory.Size = new System.Drawing.Size(337, 30);
             this.txtCategory.TabIndex = 8;
             // 
             // txtAuthor
             // 
             this.txtAuthor.Location = new System.Drawing.Point(190, 305);
             this.txtAuthor.Name = "txtAuthor";
-            this.txtAuthor.Size = new System.Drawing.Size(340, 30);
+            this.txtAuthor.Size = new System.Drawing.Size(337, 30);
             this.txtAuthor.TabIndex = 9;
             // 
             // txtQuantity
             // 
             this.txtQuantity.Location = new System.Drawing.Point(190, 371);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(340, 30);
+            this.txtQuantity.Size = new System.Drawing.Size(337, 30);
             this.txtQuantity.TabIndex = 10;
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(51, 439);
+            this.btnFind.Location = new System.Drawing.Point(891, 47);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(100, 44);
             this.btnFind.TabIndex = 11;
             this.btnFind.Text = "Find";
             this.btnFind.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteText
-            // 
-            this.btnDeleteText.Location = new System.Drawing.Point(190, 439);
-            this.btnDeleteText.Name = "btnDeleteText";
-            this.btnDeleteText.Size = new System.Drawing.Size(100, 44);
-            this.btnDeleteText.TabIndex = 12;
-            this.btnDeleteText.Text = "Delete";
-            this.btnDeleteText.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(573, 41);
+            this.btnAdd.Location = new System.Drawing.Point(573, 47);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 44);
             this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDeleteInfor
             // 
-            this.btnDeleteInfor.Location = new System.Drawing.Point(684, 41);
+            this.btnDeleteInfor.Location = new System.Drawing.Point(679, 47);
             this.btnDeleteInfor.Name = "btnDeleteInfor";
             this.btnDeleteInfor.Size = new System.Drawing.Size(100, 44);
             this.btnDeleteInfor.TabIndex = 14;
             this.btnDeleteInfor.Text = "Delete";
             this.btnDeleteInfor.UseVisualStyleBackColor = true;
+            this.btnDeleteInfor.Click += new System.EventHandler(this.btnDeleteInfor_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(805, 41);
+            this.btnUpdate.Location = new System.Drawing.Point(785, 47);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(100, 44);
             this.btnUpdate.TabIndex = 15;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(920, 41);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(100, 44);
-            this.btnReset.TabIndex = 16;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // chkBorrowed
             // 
             this.chkBorrowed.AutoSize = true;
-            this.chkBorrowed.Location = new System.Drawing.Point(339, 448);
+            this.chkBorrowed.Location = new System.Drawing.Point(190, 448);
             this.chkBorrowed.Name = "chkBorrowed";
             this.chkBorrowed.Size = new System.Drawing.Size(121, 29);
             this.chkBorrowed.TabIndex = 17;
@@ -207,25 +192,34 @@
             // dataGridViewManageBook
             // 
             this.dataGridViewManageBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewManageBook.Location = new System.Drawing.Point(573, 117);
+            this.dataGridViewManageBook.Location = new System.Drawing.Point(573, 105);
             this.dataGridViewManageBook.Name = "dataGridViewManageBook";
             this.dataGridViewManageBook.RowHeadersWidth = 62;
             this.dataGridViewManageBook.RowTemplate.Height = 28;
-            this.dataGridViewManageBook.Size = new System.Drawing.Size(447, 378);
+            this.dataGridViewManageBook.Size = new System.Drawing.Size(418, 378);
             this.dataGridViewManageBook.TabIndex = 18;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(51, 439);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(100, 44);
+            this.btnReset.TabIndex = 16;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // BookManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1067, 562);
+            this.ClientSize = new System.Drawing.Size(1059, 537);
             this.Controls.Add(this.dataGridViewManageBook);
             this.Controls.Add(this.chkBorrowed);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDeleteInfor);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.btnDeleteText);
             this.Controls.Add(this.btnFind);
             this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.txtAuthor);
@@ -242,6 +236,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BookManageForm";
             this.Text = "Book Manage Form";
+            this.Load += new System.EventHandler(this.BookManageForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewManageBook)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -262,12 +257,11 @@
         private System.Windows.Forms.TextBox txtAuthor;
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Button btnFind;
-        private System.Windows.Forms.Button btnDeleteText;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDeleteInfor;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.CheckBox chkBorrowed;
         private System.Windows.Forms.DataGridView dataGridViewManageBook;
+        private System.Windows.Forms.Button btnReset;
     }
 }

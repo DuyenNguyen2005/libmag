@@ -34,13 +34,15 @@
             this.lbUserPhone = new System.Windows.Forms.Label();
             this.lbBookName = new System.Windows.Forms.Label();
             this.txtUserId = new System.Windows.Forms.TextBox();
-            this.txtUserName = new System.Windows.Forms.TextBox();
-            this.txtUserPhone = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtNumber = new System.Windows.Forms.TextBox();
             this.txtBookName = new System.Windows.Forms.TextBox();
             this.dataGridViewBorrow = new System.Windows.Forms.DataGridView();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
-            this.ckbTeacher = new System.Windows.Forms.CheckBox();
+            this.chkIsTeacher = new System.Windows.Forms.CheckBox();
+            this.lbExpectedReturnDate = new System.Windows.Forms.Label();
+            this.dtpExpectedDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBorrow)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +50,7 @@
             // 
             this.lbBorrowBook.AutoSize = true;
             this.lbBorrowBook.Font = new System.Drawing.Font("Impact", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbBorrowBook.Location = new System.Drawing.Point(35, 46);
+            this.lbBorrowBook.Location = new System.Drawing.Point(28, 45);
             this.lbBorrowBook.Name = "lbBorrowBook";
             this.lbBorrowBook.Size = new System.Drawing.Size(203, 44);
             this.lbBorrowBook.TabIndex = 0;
@@ -57,7 +59,7 @@
             // lbUserId
             // 
             this.lbUserId.AutoSize = true;
-            this.lbUserId.Location = new System.Drawing.Point(38, 132);
+            this.lbUserId.Location = new System.Drawing.Point(31, 131);
             this.lbUserId.Name = "lbUserId";
             this.lbUserId.Size = new System.Drawing.Size(77, 25);
             this.lbUserId.TabIndex = 1;
@@ -66,7 +68,7 @@
             // lbUserName
             // 
             this.lbUserName.AutoSize = true;
-            this.lbUserName.Location = new System.Drawing.Point(38, 206);
+            this.lbUserName.Location = new System.Drawing.Point(31, 187);
             this.lbUserName.Name = "lbUserName";
             this.lbUserName.Size = new System.Drawing.Size(100, 25);
             this.lbUserName.TabIndex = 2;
@@ -75,7 +77,7 @@
             // lbUserPhone
             // 
             this.lbUserPhone.AutoSize = true;
-            this.lbUserPhone.Location = new System.Drawing.Point(38, 281);
+            this.lbUserPhone.Location = new System.Drawing.Point(31, 241);
             this.lbUserPhone.Name = "lbUserPhone";
             this.lbUserPhone.Size = new System.Drawing.Size(143, 25);
             this.lbUserPhone.TabIndex = 3;
@@ -84,7 +86,7 @@
             // lbBookName
             // 
             this.lbBookName.AutoSize = true;
-            this.lbBookName.Location = new System.Drawing.Point(38, 356);
+            this.lbBookName.Location = new System.Drawing.Point(31, 298);
             this.lbBookName.Name = "lbBookName";
             this.lbBookName.Size = new System.Drawing.Size(114, 25);
             this.lbBookName.TabIndex = 4;
@@ -92,82 +94,102 @@
             // 
             // txtUserId
             // 
-            this.txtUserId.Location = new System.Drawing.Point(198, 127);
+            this.txtUserId.Location = new System.Drawing.Point(191, 126);
             this.txtUserId.Name = "txtUserId";
-            this.txtUserId.Size = new System.Drawing.Size(281, 30);
+            this.txtUserId.Size = new System.Drawing.Size(391, 30);
             this.txtUserId.TabIndex = 5;
             // 
-            // txtUserName
+            // txtName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(198, 201);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(281, 30);
-            this.txtUserName.TabIndex = 6;
+            this.txtName.Location = new System.Drawing.Point(191, 182);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(391, 30);
+            this.txtName.TabIndex = 6;
             // 
-            // txtUserPhone
+            // txtNumber
             // 
-            this.txtUserPhone.Location = new System.Drawing.Point(198, 276);
-            this.txtUserPhone.Name = "txtUserPhone";
-            this.txtUserPhone.Size = new System.Drawing.Size(281, 30);
-            this.txtUserPhone.TabIndex = 7;
+            this.txtNumber.Location = new System.Drawing.Point(191, 241);
+            this.txtNumber.Name = "txtNumber";
+            this.txtNumber.Size = new System.Drawing.Size(391, 30);
+            this.txtNumber.TabIndex = 7;
             // 
             // txtBookName
             // 
-            this.txtBookName.Location = new System.Drawing.Point(198, 351);
+            this.txtBookName.Location = new System.Drawing.Point(191, 298);
             this.txtBookName.Name = "txtBookName";
-            this.txtBookName.Size = new System.Drawing.Size(281, 30);
+            this.txtBookName.Size = new System.Drawing.Size(391, 30);
             this.txtBookName.TabIndex = 8;
             // 
             // dataGridViewBorrow
             // 
             this.dataGridViewBorrow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewBorrow.Location = new System.Drawing.Point(550, 46);
+            this.dataGridViewBorrow.Location = new System.Drawing.Point(612, 45);
             this.dataGridViewBorrow.Name = "dataGridViewBorrow";
             this.dataGridViewBorrow.RowHeadersWidth = 62;
             this.dataGridViewBorrow.RowTemplate.Height = 28;
-            this.dataGridViewBorrow.Size = new System.Drawing.Size(369, 427);
+            this.dataGridViewBorrow.Size = new System.Drawing.Size(399, 418);
             this.dataGridViewBorrow.TabIndex = 9;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(43, 425);
+            this.btnCancel.Location = new System.Drawing.Point(36, 423);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(116, 48);
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(198, 425);
+            this.btnOk.Location = new System.Drawing.Point(174, 423);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(116, 48);
             this.btnOk.TabIndex = 11;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // ckbTeacher
+            // chkIsTeacher
             // 
-            this.ckbTeacher.AutoSize = true;
-            this.ckbTeacher.Location = new System.Drawing.Point(368, 436);
-            this.ckbTeacher.Name = "ckbTeacher";
-            this.ckbTeacher.Size = new System.Drawing.Size(111, 29);
-            this.ckbTeacher.TabIndex = 12;
-            this.ckbTeacher.Text = "Teacher";
-            this.ckbTeacher.UseVisualStyleBackColor = true;
+            this.chkIsTeacher.AutoSize = true;
+            this.chkIsTeacher.Location = new System.Drawing.Point(324, 434);
+            this.chkIsTeacher.Name = "chkIsTeacher";
+            this.chkIsTeacher.Size = new System.Drawing.Size(111, 29);
+            this.chkIsTeacher.TabIndex = 12;
+            this.chkIsTeacher.Text = "Teacher";
+            this.chkIsTeacher.UseVisualStyleBackColor = true;
+            // 
+            // lbExpectedReturnDate
+            // 
+            this.lbExpectedReturnDate.AutoSize = true;
+            this.lbExpectedReturnDate.Location = new System.Drawing.Point(31, 357);
+            this.lbExpectedReturnDate.Name = "lbExpectedReturnDate";
+            this.lbExpectedReturnDate.Size = new System.Drawing.Size(202, 25);
+            this.lbExpectedReturnDate.TabIndex = 13;
+            this.lbExpectedReturnDate.Text = "Expected Return Date";
+            // 
+            // dtpExpectedDate
+            // 
+            this.dtpExpectedDate.Location = new System.Drawing.Point(254, 357);
+            this.dtpExpectedDate.Name = "dtpExpectedDate";
+            this.dtpExpectedDate.Size = new System.Drawing.Size(328, 30);
+            this.dtpExpectedDate.TabIndex = 14;
             // 
             // BorrowBookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(964, 608);
-            this.Controls.Add(this.ckbTeacher);
+            this.ClientSize = new System.Drawing.Size(1053, 502);
+            this.Controls.Add(this.dtpExpectedDate);
+            this.Controls.Add(this.lbExpectedReturnDate);
+            this.Controls.Add(this.chkIsTeacher);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.dataGridViewBorrow);
             this.Controls.Add(this.txtBookName);
-            this.Controls.Add(this.txtUserPhone);
-            this.Controls.Add(this.txtUserName);
+            this.Controls.Add(this.txtNumber);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtUserId);
             this.Controls.Add(this.lbBookName);
             this.Controls.Add(this.lbUserPhone);
@@ -193,12 +215,14 @@
         private System.Windows.Forms.Label lbUserPhone;
         private System.Windows.Forms.Label lbBookName;
         private System.Windows.Forms.TextBox txtUserId;
-        private System.Windows.Forms.TextBox txtUserName;
-        private System.Windows.Forms.TextBox txtUserPhone;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtNumber;
         private System.Windows.Forms.TextBox txtBookName;
         private System.Windows.Forms.DataGridView dataGridViewBorrow;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.CheckBox ckbTeacher;
+        private System.Windows.Forms.CheckBox chkIsTeacher;
+        private System.Windows.Forms.Label lbExpectedReturnDate;
+        private System.Windows.Forms.DateTimePicker dtpExpectedDate;
     }
 }

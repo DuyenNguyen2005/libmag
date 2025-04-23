@@ -32,8 +32,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.dataGridViewReturn = new System.Windows.Forms.DataGridView();
             this.txtBookName = new System.Windows.Forms.TextBox();
-            this.txtUserPhone = new System.Windows.Forms.TextBox();
-            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.txtNumber = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.txtUserId = new System.Windows.Forms.TextBox();
             this.lbBookName = new System.Windows.Forms.Label();
             this.lbUserPhone = new System.Windows.Forms.Label();
@@ -45,21 +45,23 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(300, 430);
+            this.btnOk.Location = new System.Drawing.Point(192, 355);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(116, 48);
             this.btnOk.TabIndex = 23;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(89, 430);
+            this.btnCancel.Location = new System.Drawing.Point(50, 355);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(116, 48);
             this.btnCancel.TabIndex = 22;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // dataGridViewReturn
             // 
@@ -68,33 +70,33 @@
             this.dataGridViewReturn.Name = "dataGridViewReturn";
             this.dataGridViewReturn.RowHeadersWidth = 62;
             this.dataGridViewReturn.RowTemplate.Height = 28;
-            this.dataGridViewReturn.Size = new System.Drawing.Size(369, 427);
+            this.dataGridViewReturn.Size = new System.Drawing.Size(369, 352);
             this.dataGridViewReturn.TabIndex = 21;
             // 
             // txtBookName
             // 
-            this.txtBookName.Location = new System.Drawing.Point(205, 356);
+            this.txtBookName.Location = new System.Drawing.Point(205, 289);
             this.txtBookName.Name = "txtBookName";
             this.txtBookName.Size = new System.Drawing.Size(281, 30);
             this.txtBookName.TabIndex = 20;
             // 
-            // txtUserPhone
+            // txtNumber
             // 
-            this.txtUserPhone.Location = new System.Drawing.Point(205, 281);
-            this.txtUserPhone.Name = "txtUserPhone";
-            this.txtUserPhone.Size = new System.Drawing.Size(281, 30);
-            this.txtUserPhone.TabIndex = 19;
+            this.txtNumber.Location = new System.Drawing.Point(205, 228);
+            this.txtNumber.Name = "txtNumber";
+            this.txtNumber.Size = new System.Drawing.Size(281, 30);
+            this.txtNumber.TabIndex = 19;
             // 
-            // txtUserName
+            // txtName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(205, 206);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(281, 30);
-            this.txtUserName.TabIndex = 18;
+            this.txtName.Location = new System.Drawing.Point(205, 170);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(281, 30);
+            this.txtName.TabIndex = 18;
             // 
             // txtUserId
             // 
-            this.txtUserId.Location = new System.Drawing.Point(205, 132);
+            this.txtUserId.Location = new System.Drawing.Point(205, 115);
             this.txtUserId.Name = "txtUserId";
             this.txtUserId.Size = new System.Drawing.Size(281, 30);
             this.txtUserId.TabIndex = 17;
@@ -102,7 +104,7 @@
             // lbBookName
             // 
             this.lbBookName.AutoSize = true;
-            this.lbBookName.Location = new System.Drawing.Point(45, 361);
+            this.lbBookName.Location = new System.Drawing.Point(45, 294);
             this.lbBookName.Name = "lbBookName";
             this.lbBookName.Size = new System.Drawing.Size(114, 25);
             this.lbBookName.TabIndex = 16;
@@ -111,7 +113,7 @@
             // lbUserPhone
             // 
             this.lbUserPhone.AutoSize = true;
-            this.lbUserPhone.Location = new System.Drawing.Point(45, 286);
+            this.lbUserPhone.Location = new System.Drawing.Point(45, 233);
             this.lbUserPhone.Name = "lbUserPhone";
             this.lbUserPhone.Size = new System.Drawing.Size(143, 25);
             this.lbUserPhone.TabIndex = 15;
@@ -120,7 +122,7 @@
             // lbUserName
             // 
             this.lbUserName.AutoSize = true;
-            this.lbUserName.Location = new System.Drawing.Point(45, 211);
+            this.lbUserName.Location = new System.Drawing.Point(45, 175);
             this.lbUserName.Name = "lbUserName";
             this.lbUserName.Size = new System.Drawing.Size(100, 25);
             this.lbUserName.TabIndex = 14;
@@ -129,7 +131,7 @@
             // lbUserId
             // 
             this.lbUserId.AutoSize = true;
-            this.lbUserId.Location = new System.Drawing.Point(45, 137);
+            this.lbUserId.Location = new System.Drawing.Point(45, 120);
             this.lbUserId.Name = "lbUserId";
             this.lbUserId.Size = new System.Drawing.Size(77, 25);
             this.lbUserId.TabIndex = 13;
@@ -149,13 +151,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(964, 529);
+            this.ClientSize = new System.Drawing.Size(964, 439);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.dataGridViewReturn);
             this.Controls.Add(this.txtBookName);
-            this.Controls.Add(this.txtUserPhone);
-            this.Controls.Add(this.txtUserName);
+            this.Controls.Add(this.txtNumber);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtUserId);
             this.Controls.Add(this.lbBookName);
             this.Controls.Add(this.lbUserPhone);
@@ -166,6 +168,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReturnBookForm";
             this.Text = "Return Book Form";
+            this.Load += new System.EventHandler(this.ReturnBookForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReturn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -178,8 +181,8 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DataGridView dataGridViewReturn;
         private System.Windows.Forms.TextBox txtBookName;
-        private System.Windows.Forms.TextBox txtUserPhone;
-        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.TextBox txtNumber;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtUserId;
         private System.Windows.Forms.Label lbBookName;
         private System.Windows.Forms.Label lbUserPhone;

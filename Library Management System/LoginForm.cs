@@ -18,50 +18,54 @@ namespace Library_Management_System
             InitializeComponent();
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void btnOk_Click(object sender, EventArgs e)
         {
             string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=\"Library Project\";Integrated Security=True";
+
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "SELECT UserType FROM Users WHERE UserCode = @userCode";
+
+                string query = "SELECT COUNT(*) FROM Login WHERE UserName = @userName";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@userCode", txtUsername.Text.Trim());
+                    cmd.Parameters.AddWithValue("@userName", txtUsername.Text.Trim());
 
-                    object result = cmd.ExecuteScalar();
-                    if (result != null)
+                    int count = (int)cmd.ExecuteScalar();
+                    if (count > 0)
                     {
-                        int userType = Convert.ToInt32(result);
+                        // Cập nhật LoginDateTime và Status = 1 (Online)
+                        string updateQuery = "UPDATE Login SET LoginDateTime = @loginTime, Status = 1 WHERE UserName = @userName";
+                        using (SqlCommand updateCmd = new SqlCommand(updateQuery, conn))
+                        {
+                            updateCmd.Parameters.AddWithValue("@loginTime", DateTime.Now);
+                            updateCmd.Parameters.AddWithValue("@userName", txtUsername.Text.Trim());
+                            updateCmd.ExecuteNonQuery();
+                        }
 
-                        if (userType == 1)
-                        {
-                            MessageBox.Show("Welcome, Admin!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            // Mở giao diện quản trị
-                            AdminForm adminForm = new AdminForm();
-                            adminForm.Show();
-                            this.Hide();
-                        }
-                        else if (userType == 2)
-                        {
-                            MessageBox.Show("Welcome, User!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            // Mở giao diện người dùng bình thường
-                            UserForm userForm = new UserForm();
-                            userForm.Show();
-                            this.Hide();
-                        }
+                        MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Mở form chính
+                        MainForm mainForm = new MainForm();
+                        mainForm.Show();
+                        this.Hide();
                     }
                     else
                     {
-                        MessageBox.Show("Invalid UserCode!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Invalid UserName!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void LoginForm_Load(object sender, EventArgs e)
         {
-            Close();
+
         }
     }
 }
