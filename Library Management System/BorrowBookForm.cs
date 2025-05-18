@@ -17,22 +17,30 @@ namespace Library_Management_System
         public BorrowBookForm()
         {
             InitializeComponent();
+            chkIsTeacher.CheckedChanged += chkIsTeacher_CheckedChanged;
         }
 
         private void BorrowBookForm_Load(object sender, EventArgs e)
         {
             LoadBorrowList();
+            UpdateExpectedReturnDate();
         }
 
         private void LoadBorrowList()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = @"SELECT b.Id, u.Name AS UserName, bk.Name AS BookName, 
-                         b.StartDateTime, b.EndDateTime, b.BorrowStatus
-                         FROM Borrow b
-                         JOIN Users u ON u.Id = b.UserId
-                         JOIN Books bk ON bk.Id = b.BookId";
+                string query = @"
+            SELECT 
+                b.Id, 
+                u.Name AS UserName, 
+                bk.Name AS BookName, 
+                b.StartDateTime, 
+                b.EndDateTime
+            FROM Borrow b
+            JOIN Users u ON u.Id = b.UserId
+            JOIN Books bk ON bk.Id = b.BookId";
+
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -47,7 +55,7 @@ namespace Library_Management_System
             txtNumber.Clear();
             txtBookName.Clear();
             chkIsTeacher.Checked = false;
-            dtpExpectedDate.Value = DateTime.Now;
+            UpdateExpectedReturnDate();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -122,6 +130,17 @@ namespace Library_Management_System
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void UpdateExpectedReturnDate()
+        {
+            int borrowDays = chkIsTeacher.Checked ? 15 : 5;
+            dtpExpectedDate.Value = DateTime.Now.AddDays(borrowDays);
+        }
+
+        private void chkIsTeacher_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateExpectedReturnDate();
         }
     }
 }

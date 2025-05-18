@@ -50,12 +50,14 @@ namespace Library_Management_System
                     // Gán DataTable làm nguồn dữ liệu cho DataGridView
                     dataGridViewBorrow.DataSource = table;
 
+
+
                     // (Tùy chọn) Tùy chỉnh hiển thị cột
                     dataGridViewBorrow.Columns["Id"].HeaderText = "Mã mượn";
                     dataGridViewBorrow.Columns["UserId"].HeaderText = "Mã người dùng";
                     dataGridViewBorrow.Columns["BookId"].HeaderText = "Mã sách";
-                    dataGridViewBorrow.Columns["StartDateTime"].HeaderText = "Ngày bắt đầu";
-                    dataGridViewBorrow.Columns["EndDateTime"].HeaderText = "Ngày kết thúc";
+                    dataGridViewBorrow.Columns["StartDateTime"].HeaderText = "Ngày mượn";
+                    dataGridViewBorrow.Columns["EndDateTime"].HeaderText = "Dự kiến trả";
                     dataGridViewBorrow.Columns["CreatedDateTime"].HeaderText = "Ngày tạo";
                     dataGridViewBorrow.Columns["BorrowStatus"].HeaderText = "Trạng thái";
                     dataGridViewBorrow.Columns["ReturnDateTime"].HeaderText = "Ngày trả";

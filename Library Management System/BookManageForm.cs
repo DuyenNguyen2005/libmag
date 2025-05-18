@@ -50,9 +50,10 @@ namespace Library_Management_System
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Books (Name, Category, Author, AvailableQuantity, CreatedDateTime) " +
-                               "VALUES (@Name, @Category, @Author, @Quantity, @CreatedDateTime)";
+                string query = "INSERT INTO Books (Id, Name, Category, Author, AvailableQuantity, CreatedDateTime) " +
+                               "VALUES (@Id, @Name, @Category, @Author, @Quantity, @CreatedDateTime)";
                 SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Id", txtBookId.Text);
                 cmd.Parameters.AddWithValue("@Name", txtBookName.Text);
                 cmd.Parameters.AddWithValue("@Category", txtCategory.Text);
                 cmd.Parameters.AddWithValue("@Author", txtAuthor.Text);
@@ -118,19 +119,34 @@ namespace Library_Management_System
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT * FROM Books WHERE Name = @Name";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Name", txtBookName.Text);
+                string query = "";
 
-                conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
+                // Nếu checkbox "Borrowed" được tick
+                if (chkBorrowed.Checked)
                 {
-                    txtCategory.Text = reader["Category"].ToString();
-                    txtAuthor.Text = reader["Author"].ToString();
-                    txtQuantity.Text = reader["AvailableQuantity"].ToString();
+                    // Hiển thị sách đang có người mượn
+                    query = @"SELECT bk.Id, bk.Name, bk.Category, bk.Author, bk.AvailableQuantity 
+                      FROM Books bk
+                      WHERE bk.Id IN (SELECT DISTINCT BookId FROM Borrow WHERE EndDateTime IS NULL OR EndDateTime > GETDATE())";
                 }
-                reader.Close();
+                else
+                {
+                    // Tìm theo tên sách như cũ
+                    query = "SELECT * FROM Books WHERE Name = @Name";
+                }
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                if (!chkBorrowed.Checked)
+                {
+                    // Chỉ khi không check thì mới cần thêm @Name
+                    cmd.Parameters.AddWithValue("@Name", txtBookName.Text);
+                }
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridViewManageBook.DataSource = dt;
             }
         }
 

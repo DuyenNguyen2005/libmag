@@ -123,11 +123,11 @@
             // dataGridViewBorrow
             // 
             this.dataGridViewBorrow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewBorrow.Location = new System.Drawing.Point(612, 45);
+            this.dataGridViewBorrow.Location = new System.Drawing.Point(613, 45);
             this.dataGridViewBorrow.Name = "dataGridViewBorrow";
             this.dataGridViewBorrow.RowHeadersWidth = 62;
             this.dataGridViewBorrow.RowTemplate.Height = 28;
-            this.dataGridViewBorrow.Size = new System.Drawing.Size(399, 418);
+            this.dataGridViewBorrow.Size = new System.Drawing.Size(590, 426);
             this.dataGridViewBorrow.TabIndex = 9;
             // 
             // btnCancel
@@ -159,6 +159,7 @@
             this.chkIsTeacher.TabIndex = 12;
             this.chkIsTeacher.Text = "Teacher";
             this.chkIsTeacher.UseVisualStyleBackColor = true;
+            this.chkIsTeacher.CheckedChanged += new System.EventHandler(this.chkIsTeacher_CheckedChanged);
             // 
             // lbExpectedReturnDate
             // 
@@ -180,7 +181,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1053, 502);
+            this.ClientSize = new System.Drawing.Size(1241, 507);
             this.Controls.Add(this.dtpExpectedDate);
             this.Controls.Add(this.lbExpectedReturnDate);
             this.Controls.Add(this.chkIsTeacher);

@@ -13,6 +13,7 @@ namespace Library_Management_System
 {
     public partial class LoginForm: Form
     {
+        string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=\"Library Project\";Integrated Security=True";
         public LoginForm()
         {
             InitializeComponent();
@@ -25,47 +26,119 @@ namespace Library_Management_System
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=\"Library Project\";Integrated Security=True";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            // Xác thực dữ liệu nhập
+            if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
             {
-                conn.Open();
+                MessageBox.Show("Vui lòng điền đầy đủ tên người dùng và mật khẩu.", "Lỗi Xác Thực");
+                return;
+            }
 
-                string query = "SELECT COUNT(*) FROM Login WHERE UserName = @userName";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+            string selectedRole = GetSelectedRole();
+            if (string.IsNullOrEmpty(selectedRole))
+            {
+                MessageBox.Show("Vui lòng chọn vai trò.", "Lỗi Xác Thực");
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    cmd.Parameters.AddWithValue("@userName", txtUsername.Text.Trim());
+                    conn.Open();
+                    string query;
+                    string roleFromDb = null;
+                    int? loginId = null;
 
-                    int count = (int)cmd.ExecuteScalar();
-                    if (count > 0)
+                    // Kiểm tra trong bảng Login
+                    query = "SELECT id, role FROM [Login] WHERE username = @username AND password = @password";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        // Cập nhật LoginDateTime và Status = 1 (Online)
-                        string updateQuery = "UPDATE Login SET LoginDateTime = @loginTime, Status = 1 WHERE UserName = @userName";
+                        cmd.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
+                        cmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                loginId = reader.GetInt32(0);
+                                roleFromDb = reader.GetString(1);
+                            }
+                        }
+                    }
+
+                    if (roleFromDb != null && loginId.HasValue)
+                    {
+                        if (roleFromDb != selectedRole)
+                        {
+                            MessageBox.Show("Vai trò không khớp với thông tin đăng nhập.", "Lỗi Đăng Nhập");
+                            return;
+                        }
+
+                        MessageBox.Show("Đăng nhập thành công!", "Thành Công");
+
+                        // Cập nhật thời gian đăng nhập và trạng thái
+                        string updateQuery = "UPDATE [Login] SET LoginDateTime = @now, Status = 1 WHERE Id = @id";
                         using (SqlCommand updateCmd = new SqlCommand(updateQuery, conn))
                         {
-                            updateCmd.Parameters.AddWithValue("@loginTime", DateTime.Now);
-                            updateCmd.Parameters.AddWithValue("@userName", txtUsername.Text.Trim());
+                            updateCmd.Parameters.AddWithValue("@now", DateTime.Now);
+                            updateCmd.Parameters.AddWithValue("@id", loginId.Value);
                             updateCmd.ExecuteNonQuery();
                         }
 
-                        MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        // Mở form chính
-                        MainForm mainForm = new MainForm();
-                        mainForm.Show();
+                        // Hiển thị form tương ứng dựa trên role
+                        switch (selectedRole)
+                        {
+                            case "Student":
+                            case "Teacher":
+                                UserForm userForm = new UserForm(loginId.Value);
+                                userForm.Show();
+                                break;
+                            case "Librarian":
+                                MainForm mainForm = new MainForm(loginId.Value);
+                                mainForm.Show();
+                                break;
+                            case "Administrator":
+                                AdminForm adminForm = new AdminForm(loginId.Value);
+                                adminForm.Show();
+                                break;
+                        }
                         this.Hide();
                     }
                     else
                     {
-                        MessageBox.Show("Invalid UserName!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Tên người dùng hoặc mật khẩu không đúng.", "Lỗi Đăng Nhập");
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi đăng nhập: {ex.Message}", "Lỗi Cơ Sở Dữ Liệu");
+            }
+        }
+
+        private string GetSelectedRole()
+        {
+            if (rdoStudent.Checked) return "Student";
+            if (rdoTeacher.Checked) return "Teacher";
+            if (rdoAdmin.Checked) return "Administrator";
+            if (rdoLibrarian.Checked) return "Librarian";
+            return string.Empty;
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            rdoStudent.Checked = true;
+        }
 
+        private void linkCreateAcc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CreateAccountForm form = new CreateAccountForm();
+            form.Show();
+        }
+
+        private void btnCancel_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -29,7 +29,7 @@ namespace Library_Management_System
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT * FROM Login";
+                string query = @"SELECT Id, Username, Password, LoginDateTime, Status FROM Login";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
                 DataTable table = new DataTable();
                 adapter.Fill(table);
@@ -51,6 +51,13 @@ namespace Library_Management_System
                         }
                     }
                 }
+
+                // (Tùy chọn) Tùy chỉnh hiển thị cột
+                dataGridViewLoginHistory.Columns["Id"].HeaderText = "Mã đăng nhập";
+                dataGridViewLoginHistory.Columns["Username"].HeaderText = "Tên người dùng";
+                dataGridViewLoginHistory.Columns["Password"].HeaderText = "Mật khẩu";
+                dataGridViewLoginHistory.Columns["LoginDateTime"].HeaderText = "Ngày đăng nhập";
+                dataGridViewLoginHistory.Columns["Status"].HeaderText = "Trạng thái";
             }
         }
 

@@ -25,7 +25,28 @@ namespace Library_Management_System
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Borrow", conn);
+
+                string query = @"
+                SELECT 
+                    b.UserId,
+                    u.Name AS UserName,
+                    u.PhoneNumber,
+                    bo.Name AS BookName,
+                    b.StartDateTime,
+                    b.EndDateTime,
+                    b.ReturnDateTime,
+                    b.BorrowStatus
+                FROM 
+                    Borrow b
+                INNER JOIN 
+                    Users u ON b.UserId = u.Id
+                INNER JOIN 
+                    Books bo ON b.BookId = bo.Id
+                WHERE 
+                    b.BorrowStatus = 1";  // Chỉ hiện sách đang mượn
+
+
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dataGridViewReturn.DataSource = dt;
@@ -39,13 +60,13 @@ namespace Library_Management_System
             {
                 conn.Open();
 
-                // Lấy thông tin user
+                // Lấy thông tin user và sách
                 int userId = int.Parse(txtUserId.Text.Trim());
                 string bookName = txtBookName.Text.Trim();
                 DateTime now = DateTime.Now;
 
-                // Tìm BookId và AvailableQuantity
-                SqlCommand cmdBook = new SqlCommand("SELECT Id, AvailableQuantity FROM Books WHERE Name = @name", conn);
+                // Tìm BookId
+                SqlCommand cmdBook = new SqlCommand("SELECT Id FROM Books WHERE Name = @name", conn);
                 cmdBook.Parameters.AddWithValue("@name", bookName);
                 SqlDataReader readerBook = cmdBook.ExecuteReader();
 
@@ -56,16 +77,9 @@ namespace Library_Management_System
                 }
 
                 int bookId = (int)readerBook["Id"];
-                int availableQuantity = (int)readerBook["AvailableQuantity"];
                 readerBook.Close();
 
-                if (availableQuantity <= 0)
-                {
-                    MessageBox.Show("Không còn sách để mượn.");
-                    return;
-                }
-
-                // Kiểm tra người dùng là giáo viên hay sinh viên
+                // Kiểm tra người dùng tồn tại
                 SqlCommand cmdCheckUser = new SqlCommand("SELECT Name FROM Users WHERE Id = @userId", conn);
                 cmdCheckUser.Parameters.AddWithValue("@userId", userId);
                 object result = cmdCheckUser.ExecuteScalar();
@@ -76,46 +90,45 @@ namespace Library_Management_System
                     return;
                 }
 
-                bool isTeacher = MessageBox.Show("Người này có phải là giáo viên không?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes;
-                int borrowDays = isTeacher ? 15 : 5;
-                DateTime expectedReturn = now.AddDays(borrowDays);
+                // Cập nhật lại số lượng sách
+                SqlCommand updateQty = new SqlCommand("UPDATE Books SET AvailableQuantity = AvailableQuantity + 1 WHERE Id = @bookId", conn);
+                updateQty.Parameters.AddWithValue("@bookId", bookId);
+                updateQty.ExecuteNonQuery();
 
-                // Ghi thông tin mượn
-                SqlCommand cmdInsert = new SqlCommand(@"
-            INSERT INTO Borrow (UserId, BookId, StartDateTime, EndDateTime, CreatedDateTime, ReturnDateTime, BorrowStatus)
-            VALUES (@UserId, @BookId, @StartDateTime, @EndDateTime, @CreatedDateTime, @ReturnDateTime, 1)", conn);
-
-                cmdInsert.Parameters.AddWithValue("@UserId", userId);
-                cmdInsert.Parameters.AddWithValue("@BookId", bookId);
-                cmdInsert.Parameters.AddWithValue("@StartDateTime", now);
-                cmdInsert.Parameters.AddWithValue("@EndDateTime", expectedReturn);
-                cmdInsert.Parameters.AddWithValue("@CreatedDateTime", now);
-                cmdInsert.Parameters.AddWithValue("@ReturnDateTime", now);
-                cmdInsert.ExecuteNonQuery();
+                // Cập nhật trạng thái mượn về 0 (đã trả) + thời gian trả
+                SqlCommand updateBorrowStatus = new SqlCommand(@"
+            UPDATE Borrow
+            SET BorrowStatus = 0, ReturnDateTime = @returnDate
+            WHERE UserId = @userId AND BookId = @bookId AND BorrowStatus = 1", conn);
+                updateBorrowStatus.Parameters.AddWithValue("@userId", userId);
+                updateBorrowStatus.Parameters.AddWithValue("@bookId", bookId);
+                updateBorrowStatus.Parameters.AddWithValue("@returnDate", now);
+                updateBorrowStatus.ExecuteNonQuery();
 
                 // Trả sách trễ?
-                if (now > expectedReturn)
+                SqlCommand cmdGetEndDate = new SqlCommand(@"
+            SELECT EndDateTime FROM Borrow
+            WHERE UserId = @userId AND BookId = @bookId AND BorrowStatus = 0 AND ReturnDateTime = @returnDate", conn);
+                cmdGetEndDate.Parameters.AddWithValue("@userId", userId);
+                cmdGetEndDate.Parameters.AddWithValue("@bookId", bookId);
+                cmdGetEndDate.Parameters.AddWithValue("@returnDate", now);
+                object endDateObj = cmdGetEndDate.ExecuteScalar();
+
+                if (endDateObj != null && now > Convert.ToDateTime(endDateObj))
                 {
                     MessageBox.Show("Trả sách trễ! Vui lòng đóng phí phạt.");
                 }
 
                 // Hỏi về tình trạng sách
                 DialogResult damageCheck = MessageBox.Show("Sách có bị hư hỏng hoặc mất không?", "Tình trạng sách", MessageBoxButtons.YesNoCancel);
-
                 if (damageCheck == DialogResult.Yes)
                 {
-                    // Mở form xử lý thiệt hại
                     DamageForm damageForm = new DamageForm();
                     damageForm.ShowDialog();
                 }
 
-                // Cập nhật lại số lượng sách
-                SqlCommand updateQty = new SqlCommand("UPDATE Books SET AvailableQuantity = AvailableQuantity - 1 WHERE Id = @bookId", conn);
-                updateQty.Parameters.AddWithValue("@bookId", bookId);
-                updateQty.ExecuteNonQuery();
-
-                MessageBox.Show("Hoàn tất xử lý mượn/trả.");
-                LoadBorrowList();  // Hàm hiển thị danh sách mượn vào DataGridView
+                MessageBox.Show("Hoàn tất xử lý trả sách.");
+                LoadBorrowList();  // Cập nhật lại danh sách đang mượn
                 ClearForm();
             }
         }

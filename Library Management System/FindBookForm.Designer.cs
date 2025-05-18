@@ -47,9 +47,9 @@
             this.blBookId.AutoSize = true;
             this.blBookId.Location = new System.Drawing.Point(36, 117);
             this.blBookId.Name = "blBookId";
-            this.blBookId.Size = new System.Drawing.Size(92, 25);
+            this.blBookId.Size = new System.Drawing.Size(81, 25);
             this.blBookId.TabIndex = 1;
-            this.blBookId.Text = "Boook ID";
+            this.blBookId.Text = "Book ID";
             // 
             // lbBookName
             // 

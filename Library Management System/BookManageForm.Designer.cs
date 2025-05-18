@@ -141,9 +141,9 @@
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(891, 47);
+            this.btnFind.Location = new System.Drawing.Point(418, 439);
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(100, 44);
+            this.btnFind.Size = new System.Drawing.Size(102, 44);
             this.btnFind.TabIndex = 11;
             this.btnFind.Text = "Find";
             this.btnFind.UseVisualStyleBackColor = true;
@@ -151,9 +151,9 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(573, 47);
+            this.btnAdd.Location = new System.Drawing.Point(51, 439);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 44);
+            this.btnAdd.Size = new System.Drawing.Size(102, 44);
             this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -161,9 +161,9 @@
             // 
             // btnDeleteInfor
             // 
-            this.btnDeleteInfor.Location = new System.Drawing.Point(679, 47);
+            this.btnDeleteInfor.Location = new System.Drawing.Point(174, 439);
             this.btnDeleteInfor.Name = "btnDeleteInfor";
-            this.btnDeleteInfor.Size = new System.Drawing.Size(100, 44);
+            this.btnDeleteInfor.Size = new System.Drawing.Size(102, 44);
             this.btnDeleteInfor.TabIndex = 14;
             this.btnDeleteInfor.Text = "Delete";
             this.btnDeleteInfor.UseVisualStyleBackColor = true;
@@ -171,9 +171,9 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(785, 47);
+            this.btnUpdate.Location = new System.Drawing.Point(294, 439);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(100, 44);
+            this.btnUpdate.Size = new System.Drawing.Size(102, 44);
             this.btnUpdate.TabIndex = 15;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -182,7 +182,7 @@
             // chkBorrowed
             // 
             this.chkBorrowed.AutoSize = true;
-            this.chkBorrowed.Location = new System.Drawing.Point(190, 448);
+            this.chkBorrowed.Location = new System.Drawing.Point(174, 511);
             this.chkBorrowed.Name = "chkBorrowed";
             this.chkBorrowed.Size = new System.Drawing.Size(121, 29);
             this.chkBorrowed.TabIndex = 17;
@@ -192,18 +192,18 @@
             // dataGridViewManageBook
             // 
             this.dataGridViewManageBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewManageBook.Location = new System.Drawing.Point(573, 105);
+            this.dataGridViewManageBook.Location = new System.Drawing.Point(576, 41);
             this.dataGridViewManageBook.Name = "dataGridViewManageBook";
             this.dataGridViewManageBook.RowHeadersWidth = 62;
             this.dataGridViewManageBook.RowTemplate.Height = 28;
-            this.dataGridViewManageBook.Size = new System.Drawing.Size(418, 378);
+            this.dataGridViewManageBook.Size = new System.Drawing.Size(590, 499);
             this.dataGridViewManageBook.TabIndex = 18;
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(51, 439);
+            this.btnReset.Location = new System.Drawing.Point(51, 502);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(100, 44);
+            this.btnReset.Size = new System.Drawing.Size(102, 44);
             this.btnReset.TabIndex = 16;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -213,7 +213,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1059, 537);
+            this.ClientSize = new System.Drawing.Size(1214, 591);
             this.Controls.Add(this.dataGridViewManageBook);
             this.Controls.Add(this.chkBorrowed);
             this.Controls.Add(this.btnReset);

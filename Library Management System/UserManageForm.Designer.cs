@@ -45,6 +45,8 @@
             this.rdoFemale = new System.Windows.Forms.RadioButton();
             this.rdoMale = new System.Windows.Forms.RadioButton();
             this.lbGender = new System.Windows.Forms.Label();
+            this.lbEmail = new System.Windows.Forms.Label();
+            this.cbEmail = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewManageUser)).BeginInit();
             this.groupGender.SuspendLayout();
             this.SuspendLayout();
@@ -56,12 +58,12 @@
             this.dataGridViewManageUser.Name = "dataGridViewManageUser";
             this.dataGridViewManageUser.RowHeadersWidth = 62;
             this.dataGridViewManageUser.RowTemplate.Height = 28;
-            this.dataGridViewManageUser.Size = new System.Drawing.Size(447, 378);
+            this.dataGridViewManageUser.Size = new System.Drawing.Size(447, 427);
             this.dataGridViewManageUser.TabIndex = 37;
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(47, 464);
+            this.btnReset.Location = new System.Drawing.Point(441, 513);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(100, 44);
             this.btnReset.TabIndex = 35;
@@ -171,7 +173,7 @@
             // 
             this.groupGender.Controls.Add(this.rdoFemale);
             this.groupGender.Controls.Add(this.rdoMale);
-            this.groupGender.Location = new System.Drawing.Point(201, 314);
+            this.groupGender.Location = new System.Drawing.Point(201, 308);
             this.groupGender.Name = "groupGender";
             this.groupGender.Size = new System.Drawing.Size(340, 110);
             this.groupGender.TabIndex = 38;
@@ -202,17 +204,36 @@
             // lbGender
             // 
             this.lbGender.AutoSize = true;
-            this.lbGender.Location = new System.Drawing.Point(42, 323);
+            this.lbGender.Location = new System.Drawing.Point(42, 334);
             this.lbGender.Name = "lbGender";
             this.lbGender.Size = new System.Drawing.Size(77, 25);
             this.lbGender.TabIndex = 39;
             this.lbGender.Text = "Gender";
             // 
+            // lbEmail
+            // 
+            this.lbEmail.AutoSize = true;
+            this.lbEmail.Location = new System.Drawing.Point(42, 450);
+            this.lbEmail.Name = "lbEmail";
+            this.lbEmail.Size = new System.Drawing.Size(60, 25);
+            this.lbEmail.TabIndex = 40;
+            this.lbEmail.Text = "Email";
+            // 
+            // cbEmail
+            // 
+            this.cbEmail.FormattingEnabled = true;
+            this.cbEmail.Location = new System.Drawing.Point(201, 447);
+            this.cbEmail.Name = "cbEmail";
+            this.cbEmail.Size = new System.Drawing.Size(340, 33);
+            this.cbEmail.TabIndex = 41;
+            // 
             // UserManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1067, 562);
+            this.ClientSize = new System.Drawing.Size(1067, 593);
+            this.Controls.Add(this.cbEmail);
+            this.Controls.Add(this.lbEmail);
             this.Controls.Add(this.lbGender);
             this.Controls.Add(this.groupGender);
             this.Controls.Add(this.dataGridViewManageUser);
@@ -260,5 +281,7 @@
         private System.Windows.Forms.Label lbGender;
         private System.Windows.Forms.RadioButton rdoFemale;
         private System.Windows.Forms.RadioButton rdoMale;
+        private System.Windows.Forms.Label lbEmail;
+        private System.Windows.Forms.ComboBox cbEmail;
     }
 }
